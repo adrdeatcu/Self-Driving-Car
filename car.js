@@ -5,7 +5,7 @@ class Car {
         this.width = width;
         this.height = height;
 
-        this.controls = new this.controls();
+        this.controls = new Controls();
     }
 
     draw(ctx) {
