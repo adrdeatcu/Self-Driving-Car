@@ -11,12 +11,14 @@ class Car {
         this.friction= 0.05;
         this.angle=0;
 
+        this.sensor=new Sensor(this);
         this.controls = new Controls();
     }
 
     //On web the Y axis goes from 0 downwards for positive numbers, so substracting the number makes the car going forward
-    update(){
+    update(roadBorders){
         this.#move();
+        this.sensor.update(roadBorders);
     }
 
     #move() {
@@ -71,5 +73,7 @@ class Car {
         ctx.fill();
 
         ctx.restore();
+
+        this.sensor.draw(ctx);
     }
 }
